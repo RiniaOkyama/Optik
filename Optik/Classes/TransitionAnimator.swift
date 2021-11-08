@@ -117,7 +117,10 @@ internal final class TransitionAnimator: NSObject {
   
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             viewControllerToAnimate.view.alpha = shouldAnimateInReverse ? initialAlpha : finalAlpha
-        }) 
+        })
+        UIView.animate(withDuration: 0.2, delay: 0.0, animations: {
+            self.toImageView?.alpha = shouldAnimateInReverse ? initialAlpha : finalAlpha
+        }, completion: nil)
     }
     
     private func performZoomAnimation(reverse shouldAnimateInReverse: Bool, withVelocity velocity: CGRect) {
